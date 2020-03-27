@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Module 6 Assignment 6A/ Bank Account</title>
+</head>
+<body>
+<script>
+
+
+    //Created the function constructor.
+   let BankAcct =  function(acctNum, acctOwner, checkBalance, saveBalance, acctType){
+
+    //Set each value according the arguments.
+    this.acctNum = acctNum;
+    this.acctOwner = acctOwner;
+    this.checkBalance = checkBalance;
+    this.saveBalance = saveBalance;
+    this.acctType = acctType;
+
+    }
+
+    //I created a new object, angieAcct, using a constructor function.
+
+    let angieAcct = new BankAcct(123, "Angie", 10, 0, "Checking");
+
+        console.log(angieAcct);
+
+
+
+     //I defined BankAcct prototype, with amount as an argument.
+     BankAcct.prototype.checkTransfer = function(amount){
+
+          //When the function is called, the parameter passed would be add to the current value of checkBalance.
+          //The result would be store on the variable newAmount.
+    let newAmount = amount + this.checkBalance;
+
+        //The conditional statement would check if the value of newAmount is greater than 0.
+
+    if(newAmount > 0){
+        //When the condition is true, the value of newAmount will replaced the number stored in the object checkBalance's property.
+        this.checkBalance = newAmount;
+
+    }
+    //return the value of the property.
+    return this.checkBalance = newAmount;
+}
+
+
+
+
+    //Print the current balance.
+     console.log(angieAcct.checkBalance);
+
+      //Added value of 20 using the checkTransfer method.
+     angieAcct.checkTransfer(20);
+
+     //Print new value to check the functionality.
+     console.log(angieAcct.checkBalance);
+
+
+
+
+</script>
+</body>
+</html>

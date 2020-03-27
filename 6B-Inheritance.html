@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Module 6 Assignment 6B/ Inheritance</title>
+</head>
+<body>
+<script>
+
+    //This is the function constructor.
+   var Person = function() {};
+    //Created the first method.
+   Person.prototype.initialize = function(name, age)
+   {
+       this.name = name;
+       this.age = age;
+   }
+
+   Person.prototype.describe = function()
+   {
+       return this.name + ", " + this.age + " years old.";
+   }
+
+    //Declared a new object.
+   var Student = function() {};
+
+   //This new constructor, Student, is a new Instance of Person class and inherited its methods.
+   Student.prototype = new Person();
+
+
+   Student.prototype.learn = function(subject)
+   {
+       console.log(this.name + " just learned " + subject);
+   }
+
+
+   var me = new Student();
+
+   me.initialize("John", 25);
+   me.learn("Inheritance");
+
+
+   //Created a new Object called Teacher.
+   var Teacher = function() {};
+
+
+   //Teacher is an instance of the Person Class.
+   Teacher.prototype = new Person();
+
+   //Here I implement a method called teach which receives a string called subject.
+   Teacher.prototype.teach = function(subject){
+
+       //the method prints out : [teacher's name] is now teaching [subject]
+       console.log(this.name + " is now teaching " + subject);
+   }
+
+   //I created a new teacher to check functionality.
+   var makita = new Teacher();
+
+   //I called the initialize method inherited from Person.
+   makita.initialize("Makita", 33);
+
+   //I called the second method added to Teacher using the prototype property.
+   makita.teach("Math");
+
+</script>
+</body>
+</html>

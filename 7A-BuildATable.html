@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Module 7 Assignment 7A/ Build a Table</title>
+
+    <style>
+
+        table, th, td {
+            border: 1px solid black;
+            width: 40%;
+            margin: auto;
+        }
+        h1 {
+
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+
+<h1>Mountains</h1>
+
+<div id="mountains"></div>
+
+ <table>
+
+ </table>
+
+
+
+<script>
+
+
+    const MOUNTAINS = [
+        {name: "Kilimanjaro", height: 5895, place: "Tanzania"},
+        {name: "Everest", height: 8848, place: "Nepal"},
+        {name: "Mount Fuji", height: 3776, place: "Japan"},
+        {name: "Vaalserberg", height: 323, place: "Netherlands"},
+        {name: "Denali", height: 6168, place: "United States"},
+        {name: "Popocatepetl", height: 5465, place: "Mexico"},
+        {name: "Mont Blanc", height: 4808, place: "Italy/France"}
+    ];
+
+    // Your code here
+    //This function takes creates the heading and takes 2 arguments,
+
+    function generateTableHeading(table, data, ar){
+        // createTHead(), a JS method that creates an empty thead element and adds it to the current table.
+        let thead = table.createTHead();
+        //This is another JS method that creates a row.
+        let row = thead.insertRow();
+        //This loop iterates over the properties in the array and create a new th element for every key and text node.
+       for (let key of data){
+
+           //Create a "th" element to add to the table.
+           let th = document.createElement("th");
+           //Since the array has 3 key values pair, create 3 text values. name, height and place.
+           let text = document.createTextNode(key);
+           //append the text as a child of "th" element node.
+           th.appendChild(text);
+           //append the text and the element as a child of row created as heading.
+           row.appendChild(th);
+       }
+    }
+
+    //This function creates the rest of the cells in the table and takes 2 arguments.
+    function generateTable(table, data){
+
+        // this loop iterates over the array and add a row for each element.
+        for(let element of data ){
+
+            //create a new row in the table.
+            let newRow = table.insertRow();
+            //This for in iterates over the properties of the element
+            for (let key in element ){
+
+           //insert a new cell in each row and create the element td.
+           let cell = newRow.insertCell();
+                //append to the row each of the values in the second iteration, the keys of each element.
+           cell.appendChild( document.createTextNode(element[key]));
+
+           //Check if the type of value is not text, align the numbers to the right.
+                if (typeof element[key] == "number") {
+                    cell.style.textAlign = "right";
+                }
+
+            }
+        }
+
+    }
+
+
+    // table select the element table in the DOM.
+    let table = document.querySelector("table");
+    // data store an array with the property names.
+    let data = Object.keys(MOUNTAINS[1]);
+
+
+    //call the function to create the heading and pass the element and the name of the properties.
+    generateTableHeading(table, data, MOUNTAINS);
+    //call the function
+   generateTable(table, MOUNTAINS);
+
+
+
+
+
+</script>
+</body>
+</html>

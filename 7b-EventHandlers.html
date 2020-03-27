@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Module 6 Assignment 6B/ Inheritance</title>
+    <style>
+
+   p{
+    text-align: center;
+    margin-top: 10%;
+    font-size: 10px;
+
+}
+    </style>
+</head>
+<body>
+
+  <p >🎈</p>
+<script>
+
+        //Used the query selector and select the "p" element.
+        let balloon = document.querySelector("p");
+
+        //Block the normal functionality of the keyboard to prevent the arrow scroll the page.
+        document.onkeydown = function (event) {
+            return false;
+        }
+     //Create an event handler get fire every time the up arrow in the keyboard is pressed.
+    document.addEventListener("keydown", balloonSize, false);
+        //Global variable to set the values of the px.
+        let size = 1;
+
+        //function fire by the event.
+        function balloonSize(key) {
+
+            //The conditional used the property code to check the value of the keyboard pressed.
+            //When is up increase 10. Down decrease 10.
+            //call the function with the variable change.
+            if (key.code == "ArrowUp") {
+
+                size = size + 10;
+
+                growBalloon(size);
+
+            } else if (key.code == "ArrowDown") {
+
+                if (size > 10 ){
+                    size = size - 10;
+                } if (size <= 10 ){
+                    size = 10;
+                }
+                shrinkBalloon(size);
+
+            }
+        }
+
+        //When size is more than 1 increase 10 px to the font size.
+        //When the value is more than 420 replace the emoji.
+        //Invoke a function to remove the event listener.
+        function growBalloon(size) {
+
+
+            if (size > 1 || size < 420) {
+
+                balloon.style.fontSize = size + "px";
+            }
+
+            if (size > 420) {
+                balloon.innerText = "💥"
+
+                disableArrow();
+
+
+            }
+        }
+        //Function to decrease the font size when arrow down is pressed on the keyboard.
+     function shrinkBalloon(size){
+
+         if(size > 20 || size < 420 ){
+
+             balloon.style.fontSize = size + "px";}
+
+         if (size < 10 ){
+             size = 10;
+         }
+
+     }
+
+     //When this function is invoke the event handler is removed.
+     function disableArrow(){
+         document.removeEventListener("keydown", balloonSize);
+
+     }
+
+</script>
+</body>
+</html>

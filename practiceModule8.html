@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Module 6 Assignment 6B/ Inheritance</title>
+</head>
+<body>
+
+
+<h1>Mountains</h1>
+
+<div id="mountains"></div>
+
+<script>
+    let MOUNTAINS= [
+        { name: "Monte Falco", height: 1658, place: "Parco Foreste Casentinesi" },
+        { name: "Monte Falterona", height: 1654, place: "Parco Foreste Casentinesi" },
+        { name: "Poggio Scali", height: 1520, place: "Parco Foreste Casentinesi" },
+        { name: "Pratomagno", height: 1592, place: "Parco Foreste Casentinesi" },
+        { name: "Monte Amiata", height: 1738, place: "Siena" }
+    ];
+
+
+
+    function buildTable(data) {
+        let table = document.createElement("table");
+
+        let fields = Object.keys(data[0]);
+        let headRow = document.createElement("tr");
+        fields.forEach(function(field) {
+            let headCell = document.createElement("th");
+            headCell.appendChild(document.createTextNode(field));
+            headRow.appendChild(headCell);
+        });
+        table.appendChild(headRow);
+
+        data.forEach(function(object) {
+            let row = document.createElement("tr");
+            fields.forEach(function(field) {
+                let cell = document.createElement("td");
+                cell.appendChild(document.createTextNode(object[field]));
+                if (typeof object[field] == "number") {
+                    cell.style.textAlign = "right";
+                }
+                row.appendChild(cell);
+            });
+            table.appendChild(row);
+        });
+
+        return table;
+    }
+
+    document.querySelector("#mountains")
+        .appendChild(buildTable(MOUNTAINS));
+
+
+</script>
+</body>
+</html>

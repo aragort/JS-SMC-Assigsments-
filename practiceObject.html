@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Module 4 Assignment 4B/ Word Length</title>
+</head>
+<body>
+<script>
+
+    function Person(first, last, age, gender, interests) {
+        this.name = {
+            'first': first,
+            'last' : last
+        };
+        this.age = age;
+        this.gender = gender;
+
+        this.interests = interests;
+        this.bio = function() {
+
+            let heshe = '';
+            if (this.gender == "male" ){
+                heshe = 'He'
+            }if(this.gender == "female"){
+                heshe = 'She'
+            }
+
+        let lastIntesrest = this.interests.length -1;
+            let interests = this.interests;
+            let last = interests[lastIntesrest];
+            let firstInterests = interests.pop();
+
+
+            console.log(last);
+
+            alert(this.name.first + ' ' + this.name.last + ' is ' + this.age +
+                ' years old. ' + heshe + ' likes ' + interests + ' and ' +
+                last + '.');
+        };
+        this.greeting = function() {
+            alert('Hi! I\'m ' + this.name.first + '.');
+        };
+    }
+
+
+    var person1 = new Person('Bob', 'Smith', 32, 'male', ['music',
+        'skiing']);
+
+    var person2 = new Person('Angie', 'Aragort', 37, 'female', ['read', 'music', 'run', 'food']);
+
+    console.log(person2);
+    console.log(person1);
+
+
+    var persona1 = Object();
+    persona1.name = 'Chris';
+    persona1['age'] = 38;
+    persona1.greeting = function() {
+        alert('Hi! I\'m ' + this.name + '.');
+    };
+    console.log(persona1);
+
+    var persona2 = Object.create(persona1);
+
+    console.log(persona2.greeting());
+
+
+    //Methods
+
+
+
+    let rabit ={};
+
+    rabit.speak = function(line){
+
+        console.log(`The rabit says '${line}'`);
+
+
+    }
+
+    console.log(rabit.speak("hello babyyyy"));
+
+
+
+
+    //Create a an Object constructor function called BankAcct with the properties acctNum, acctOwner,
+    // checkBalance, saveBalance, acctType.
+
+   // Define a BankAcct.prototype method called checkTransfer() that accepts a amount as an argument.
+    // The method should check if the amount + checkBalance is greater than 0 before setting a new checkBalance amount.
+
+       // Upload files to Canvas
+
+
+
+    var BankAcct =  function(acctNum, acctOwner, checkBalance, saveBalance, acctType){
+
+        this.acctNum = acctNum;
+        this.acctOwner = acctOwner;
+        this.checkBalance = checkBalance;
+        this.saveBallance = saveBalance;
+        this.acctType = acctType;
+
+        this.checkTransfer = function(amount){
+
+            let newAmount = amount + checkBalance;
+            if(newAmount > 0){
+
+                checkBalance = newAmount;
+
+            }
+            return this.checkBalance = newAmount;
+        }
+
+    }
+
+    var angieAcct = new BankAcct(123, "Angie", 10, 8, "checking");
+
+    console.log(angieAcct);
+///// Classes and Prototypes
+
+
+    var human ={
+        species: "human",
+        saysSpecies : function(){
+            console.log(this.species);
+        },
+
+        sayName: function(){
+
+            console.log(this.name);
+        }
+    };
+
+    var musician = Object.create(human);
+
+    musician.playInstrument = function(){
+        console.log( "plays..." + this.instrument);
+    };
+
+
+    var will = Object.create(musician);
+
+    will.name = 'Will';
+    will.instrument = "Drum";
+
+
+
+
+var newHuman = {
+    species: " Human",
+    create: function(name){
+        var instance = Object.create(this);
+        instance.name = name;
+        return instance;
+    }
+}
+
+var angieHuman = newHuman.create("Angie");
+
+
+
+///class
+
+
+
+
+
+
+
+    //I used this first ,
+    /*class BankAcct {
+
+     constructor(acctNum, acctOwner, checkBalance, saveBalance, acctType) {
+         this.acctNum = acctNum;
+         this.acctOwner = acctOwner;
+         this.checkBalance = checkBalance;
+         this.saveBalance = saveBalance;
+         this.acctType = acctType;
+
+     }
+
+
+     checkTransfer(amount){
+
+         let newAmount = amount + this.checkBalance;
+         if(newAmount > 0){
+
+            this.checkBalance = newAmount;
+
+         }
+         return this.checkBalance;
+     }
+
+
+    } */
+
+
+
+
+
+
+    var Person = function() {};
+
+    Person.prototype.initialize = function(name, age)
+    {
+        this.name = name;
+        this.age = age;
+    }
+
+    Person.prototype.teach =function(subject){
+
+        console.log(this.name + " is now Teaching " + subject);
+
+    }
+
+    Person.prototype.describe = function()
+    {
+        return this.name + ", " + this.age + " years old.";
+    }
+
+    var Student = function() {};
+
+    Student.prototype = new Person();
+
+
+    Student.prototype.learn = function(subject)
+
+    {
+        console.log(this.name + " just learned " + subject);
+    }
+
+    var me = new Student();
+
+
+    var teacher = new Person();
+
+    teacher.initialize("Angie", "33");
+    console.log(teacher.teach("Math"));
+
+
+    console.log(me.initialize("John", 25));
+    console.log(me.learn("Inheritance"));
+
+</script>
+</body>
+</ht

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Module 5 Assignment 5B/ Print Multidimensional Array</title>
+</head>
+<body>
+<script>
+
+    //Declare an Array a;
+    let a = [[1, 2, 1, 24], [8, 11, 9, 4], [7, 0, 7, 27], [7, 4, 28, 14], [3, 10, 26, 7]];
+
+
+    //For loop initialize declaring the i variable. This iterates over the Array while i is less than the length of a.
+    //Every time this condition is true the value of i increased 1.
+    for(let i=0; i<a.length; i++){
+
+        //When the loop statement is executed, prints to the console the string "row" and the value of i at the moment of each iteration.
+        console.log("row " +  i);
+
+
+        // This nested for loop initialize declaring variable j.
+        //The condition in this loop evaluates if j is less than the length of an element of the Array a.
+        //This element corresponds to the one related to the index designated in the respective iteration for the value of i from the outer loop. [i]
+
+        for( let j=0; j< a[i].length; j++){
+
+
+            //Prints to the console each of the elements stored in every index of the Array a.
+            //the value of each element[j] in index[i].
+            console.log(a[i][j]);
+
+        }
+    }
+
+</script>
+</body>
+</html>

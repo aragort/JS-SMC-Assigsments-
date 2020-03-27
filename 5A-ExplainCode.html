@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Module 5 Assignment 5A/ Explain Code</title>
+</head>
+<body>
+<script>
+
+    //1.-What does line 2 do?
+    // Initialize an array using an array literal, and assigns 5 elements.
+    colors = ["red", "blue", "yellow", "violet", "green"];
+
+
+
+    //2.-What is line 5 output?
+    // The output is red, the value of the element in index 0.
+    console.log(colors[0]);
+
+
+
+    //3.-What is line 8 output?
+    //The output is yellow, the value of the element in index 2.
+    console.log(colors[2]);
+
+
+    //4.-Explain the next two lines.
+    // Assigns ultraviolet, a new element, to index 4.
+    // Prints the value of the Array colors in the console.
+    colors[4] = "ultraviolet";
+    console.log(colors)
+
+
+
+    //5.-Explain the next three lines.
+    //Declared the variable fourthColor, sets its value to a string, "violet".
+    //Assigns fourthColor to index 3 of the Array.
+    //Displays the value of the Array to the console. Value is the same because the variable store a string with the same color's name.
+
+    fourthColor = "violet";
+    colors[3] = fourthColor;
+    console.log(colors);
+
+
+
+    //.6-Explain te below two lines.
+    //Adds pink as a Sixth element to the Array, index number 5.
+    //Displays colors to the console.
+
+    colors[5] = ("pink");
+    console.log(colors);
+
+
+
+    //7.-What is .unshift()
+    //It's a method that adds a new element to the front of the Array and returns its value.
+    //The value of colors[0] is now "White";
+    colors.unshift("white");
+    console.log(colors);
+
+
+
+    //8.-What is .length property?
+    //.length it's a property of Arrays that returns the number of its elements.
+    //In this case, the length of colors is 7.
+    console.log(colors.length);
+
+
+
+
+
+    //9.-What does pop() do?
+    //This method removes the last element of the array, and returns that element.
+    //Removed pink.
+    colors.pop();
+    console.log(colors.length)
+    console.log(colors);
+
+
+    //10.-Explain the below two for loops
+
+    //This for loop iterate over the the Array until the value of i is not less than the length of colors.
+    //For every iteration, the value of i is increased, the block is executed printing the element stored in each index of the Array.
+    for (var i = 0; i < colors.length; i++) {
+
+        console.log(colors[i]);
+
+    }
+
+
+    //This loop also iterate over the Array colors.
+    //Every execution prints the concatenation of the index number of each element, plus a string (colon), and the value of the element itself.
+    for (var i = 0; i < colors.length; i++) {
+
+        console.log(i + ": " + colors[i]);
+
+    }
+
+
+
+
+    //11.- What is line 48 output?
+    //len, stored the number of the last index of colors (1 counting from right to left) 5.
+    //lastColor, stored the element of colors which index is the value assigned to len.
+    //Output is ultraviolet, value of index 5.
+
+    var len = colors.length - 1;
+
+    var lastColor = colors[len];
+
+    console.log(lastColor)
+
+
+
+</script>
+</body>
+</html>

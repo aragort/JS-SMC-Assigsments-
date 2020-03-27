@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Module 10 Assignment 10A/ Click Double Click</title>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+  <p>Click me!</p>
+
+  <div id="result"></div>
+
+
+  <script type="text/javascript">
+ 
+ 
+ //I used Jquery selector to choose the element.
+
+ //I did not use .bind() because the documentation mentioned that it has been deprecated, instead I used .dblclick() and .click() methods which are a shortcut for .on( "event", handler ).
+
+ //I also added a class to each elment to be able to see the functionality and differientiate between a single and double click. I  could not think in a better solution for that, I would really appreciate your feedback in here. 
+
+ $( "p" ).dblclick(function() {
+
+  $("#result").append("<p class='clickedTwice'>This is a double-click Event</p>");
+
+  $(".clickedOnce").hide();
+});
+
+$( "p" ).click(function() {
+
+$("#result").append("<p class ='clickedOnce'>This is a click Event</p>");
+
+$(".clickedTwice").hide();
+
+});
+
+
+
+  </script>
+</body>
+
+</html>

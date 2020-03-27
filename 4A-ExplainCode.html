@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Module 4 Assignment 4A/ Explain Code</title>
+</head>
+<body>
+<script>
+
+
+//1.-What does the countChar function do?
+//-This function declaration pass 2 arguments (string,ch).
+//-Creates a local variable called counted and sets 0 as its value.
+//Check values in the For Loop.
+//Return the variable counted.
+
+//2.-What is string and ch?
+//string and ch are the function arguments. When CountChar is called, the values assigned to the parameters will be use to execute the code of the loop nested in the function statement.
+        function countChar(string, ch) {
+            let counted = 0;
+
+
+//3.-Explain this for loop.
+
+ // First(let i =0): The initializer creates a variable i and sets its value to 0, this is executed just once at the start.
+
+ // Second (i<string.length): Defines the condition for executing the code block, while the value of i is less than the value of the length of the string passed, the loop is executed.
+
+ // Third (i++):  The updater,which increments the loop counter after the code block has been executed.
+
+ // The conditional statement nested in the loop check each index of the value passed in the string parameter, and compares if its value is equal to the one passed on ch.
+
+// If the operands are equal, the value of the variable counted increase one; otherwise, the value of counted stay the same.
+
+
+            for (let i = 0; i < string.length; i++) {
+
+                if (string[i] == ch) {
+
+
+                    counted += 1;
+                }
+            }
+            return counted;
+
+        }
+
+    //4.- What does the countBs function?
+//This function has just one argument and return the invocation of the function CountChar.
+//The parameter used to call countBs will be passed as the parameter value at the time of invoking countChart
+//When function countBs is called, its parameter is used as the function countChar first parameter, along with the string "B" that will always be used as a second parameter.
+
+    function countBs(string) {
+
+        return countChar(string, "B");
+
+    }
+
+
+    //5.- What is the output to console.log()
+    //console.log countBs("BBC") = 2.
+    countBs("BBC")
+
+
+    //console.log countChar("kakkerlak", "k") = 4.
+    countChar("kakkerlak", "k")
+
+
+
+
+
+</script>
+</body>
+</html>
